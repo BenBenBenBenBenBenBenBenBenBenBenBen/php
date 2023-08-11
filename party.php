@@ -1,9 +1,9 @@
 <?php
 
 class Party{
-    public $name;
-    public $seats;
-    public $votePercentage;
+    var $name;
+    var $seats;
+    var $votePercentage;
 
     function __construct($newName, $newSeats){
         $this->name=$newName;

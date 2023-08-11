@@ -1,9 +1,9 @@
 <?php
 
 class Candidate{
-    public $name;
-    public $party;
-    public $candidateVote;
+    var $name;
+    var $party;
+    var $candidateVote;
     
     function __construct($newName, $newParty){
         $this->name=$newName;

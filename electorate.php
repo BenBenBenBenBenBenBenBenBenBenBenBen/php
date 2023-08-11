@@ -3,9 +3,9 @@
 include "candidate.php";
 
 class Electorate{
-    public $name;
-    public $winningParty;
-    public $allMyCandidates=array();
+    var $name;
+    var $winningParty;
+    var $allMyCandidates=array();
 
     function __construct($newName){
         $this->name=$newName;
@@ -25,7 +25,7 @@ class Electorate{
     }
 
     function setCandidateVote($name, $candidateVote){
-        for ($i=0; $i<=count($this->allMyCandidates)-1; $i++){
+        for ($i=0; $i<count($this->allMyCandidates); $i++){
             if ($this->allMyCandidates[$i]->name===$name){
                 $this->allMyCandidates[$i]->setCandidateVote($candidateVote);
                 break;
@@ -35,7 +35,7 @@ class Electorate{
 
     function findCandidate($targetCandidateName){
         $foundCandidate=null;
-        for ($i=0; $i<=count($this->allMyCandidates)-1; $i++){
+        for ($i=0; $i<count($this->allMyCandidates); $i++){
             if ($this->allMyCandidates[$i]->name===$targetCandidateName){
                 $foundCandidate=$this->allMyCandidates[$i];
                 break;
@@ -47,7 +47,7 @@ class Electorate{
     function getCandidates(){
         $this->sortCandidates();
         $out="<tr><th colspan='3' class='subHeading'>{$this->name}</th><th colspan='3' class='subHeading'>(Sorted by vote)</th></tr>";
-        for ($i=0; $i<=count($this->allMyCandidates)-1; $i++){
+        for ($i=0; $i<count($this->allMyCandidates); $i++){
             $out.=$this->allMyCandidates[$i]->__toString();
         }
         return $out;

@@ -4,10 +4,10 @@ include "party.php";
 include "electorate.php";
 
 class Election{
-    public $name;
-    public $year;
-    public $allMyParties=array();
-    public $allMyElectorates=array();
+    var $name;
+    var $year;
+    var $allMyParties=array();
+    var $allMyElectorates=array();
 
     function __construct($newName, $newYear){
         $this->name=$newName;
@@ -17,15 +17,15 @@ class Election{
     function __toString(){
         $this->sortParties();
         $out="<table><tr><th colspan='6' class='heading'>{$this->name} {$this->year}</th></tr><tr><th colspan='3' class='subHeading'>Parties</th><th colspan='2' class='subHeading'>Seats</th><th class='subHeading'>Vote%</th></tr>";
-        for ($i=0; $i<=count($this->allMyParties)-1; $i++){
+        for ($i=0; $i<count($this->allMyParties); $i++){
             $out.=$this->allMyParties[$i]->__toString();
         }
         $out.="<tr><th colspan='3' class='subHeading'>Electorates</th><th colspan='3' class='subHeading'>Winning Party</th></tr>";
         $this->sortElectorates();
-        for ($i=0; $i<=count($this->allMyElectorates)-1; $i++){
+        for ($i=0; $i<count($this->allMyElectorates); $i++){
             $out.=$this->allMyElectorates[$i]->__toString();
         }
-        for ($i=0; $i<=count($this->allMyElectorates)-1; $i++){
+        for ($i=0; $i<count($this->allMyElectorates); $i++){
             if (count($this->allMyElectorates[$i]->allMyCandidates)!=0){
                 $out.=$this->allMyElectorates[$i]->getCandidates();
             }
@@ -40,7 +40,7 @@ class Election{
     }
 
     function setVotePercentage($name, $votePercentage){
-        for ($i=0; $i<=count($this->allMyParties)-1; $i++){
+        for ($i=0; $i<count($this->allMyParties); $i++){
             if ($this->allMyParties[$i]->name===$name){
                 $this->allMyParties[$i]->setVotePercentage($votePercentage);
                 break;
@@ -54,7 +54,7 @@ class Election{
     }
 
     function setWinningParty($name, $winningParty){
-        for ($i=0; $i<=count($this->allMyElectorates)-1; $i++){
+        for ($i=0; $i<count($this->allMyElectorates); $i++){
             if ($this->allMyElectorates[$i]->name===$name){
                 $this->allMyElectorates[$i]->setWinningParty($winningParty);
                 break;
@@ -64,7 +64,7 @@ class Election{
 
     function findElectorate($targetElectorateName){
         $foundElectorate=null;
-        for ($i=0; $i<=count($this->allMyElectorates)-1; $i++){
+        for ($i=0; $i<count($this->allMyElectorates); $i++){
             if ($this->allMyElectorates[$i]->name===$targetElectorateName){
                 $foundElectorate=$this->allMyElectorates[$i];
                 break;
