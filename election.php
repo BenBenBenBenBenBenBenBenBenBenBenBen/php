@@ -42,7 +42,7 @@ class Election{
     function setVotePercentage($name, $votePercentage){
         for ($i=0; $i<count($this->allMyParties); $i++){
             if ($this->allMyParties[$i]->name===$name){
-                $this->allMyParties[$i]->setVotePercentage($votePercentage);
+                $this->allMyParties[$i]->votePercentage=$votePercentage;;
                 break;
             }
         }
@@ -56,7 +56,7 @@ class Election{
     function setWinningParty($name, $winningParty){
         for ($i=0; $i<count($this->allMyElectorates); $i++){
             if ($this->allMyElectorates[$i]->name===$name){
-                $this->allMyElectorates[$i]->setWinningParty($winningParty);
+                $this->allMyElectorates[$i]->winningParty=$winningParty;
                 break;
             }
         }

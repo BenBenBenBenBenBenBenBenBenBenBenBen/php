@@ -18,8 +18,4 @@ class Party{
 		$result.="</tr>";
 		return $result;
     }
-
-    function setVotePercentage($votePercentage){
-        $this->votePercentage=$votePercentage;
-    }
 }

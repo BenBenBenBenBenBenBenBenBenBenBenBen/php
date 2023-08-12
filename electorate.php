@@ -27,7 +27,7 @@ class Electorate{
     function setCandidateVote($name, $candidateVote){
         for ($i=0; $i<count($this->allMyCandidates); $i++){
             if ($this->allMyCandidates[$i]->name===$name){
-                $this->allMyCandidates[$i]->setCandidateVote($candidateVote);
+                $this->allMyCandidates[$i]->candidateVote=$candidateVote;
                 break;
             }
         }
@@ -51,10 +51,6 @@ class Electorate{
             $out.=$this->allMyCandidates[$i]->__toString();
         }
         return $out;
-    }
-
-    function setWinningParty($winningParty){
-        $this->winningParty=$winningParty;
     }
 
     function sortCandidates(){

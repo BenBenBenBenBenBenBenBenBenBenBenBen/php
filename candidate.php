@@ -18,8 +18,4 @@ class Candidate{
 		$result.="</tr>";
 		return $result;
     }
-
-    function setCandidateVote($candidateVote){
-        $this->candidateVote=$candidateVote;
-    }
 }
